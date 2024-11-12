@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ipcMain } from 'electron';
+
+//https://dev.to/michaeljota/integrating-an-angular-cli-application-with-electron---the-ipc-4m18
 
 @Component({
   standalone: true,
@@ -9,4 +12,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   templateUrl: 'main-screen.component.html',
   imports: [MatToolbarModule, MatButtonModule, MatIconModule],
 })
-export class MainScreenComponent {}
+export class MainScreenComponent implements OnInit {
+  ngOnInit(): void {
+    ipcMain.on('ping', (event) => {
+      console.log('ping');
+    });
+  }
+}
