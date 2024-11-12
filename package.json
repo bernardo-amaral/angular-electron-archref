@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:electron-app": "node dist/electron-app/server/server.mjs",
-    "electron": "ng build && electron ."
+    "electron": "electron . && npm start"
   },
   "private": true,
   "dependencies": {
@@ -38,6 +38,7 @@
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
     "electron": "^31.1.0",
+    "electron-reloader": "^1.2.3",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
